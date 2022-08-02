@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}test{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/account.css' %}">
+{% endblock %}
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+<li class="breadcrumb-item active">New test car</li>
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <label> welcom {{user.username}} <br>if you need a car number this can help <a href= "3" >click</a> {% for c in cars %}{{c.first}}{% endfor %} </label><br>
+    <label>car number</label>
+    <input type = "number" name = "car_number" id = "id_car_number"> 
+    <a type ="submit" class="btn btn-primary" role="button">بحث</a>
+</form>
+{% endblock  %}
+
+
+
+{% comment %} {% include 'includes/form1.html' %} {% endcomment %}

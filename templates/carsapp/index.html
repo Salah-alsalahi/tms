@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title%}index{%endblock%}
+{% block stylesheet %}
+
+{% endblock %}
+{% block breadcrumb %}
+<li class="breadcrumb-item active">home </li>
+{%endblock%} 
+
+{% block content %}
+
+
+    {% if messages %} 
+            {% for ms in messages %}
+            <h1>
+
+                {{ms}}
+                <a href="{% url 'new_car2'  %}">add new car</a>
+            </h1>
+            {% endfor %} 
+    {% endif %} 
+
+
+<br><br><br>
+<div >
+
+
+</div>
+{%endblock%}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title%}profile_page{%endblock%}
+{% block stylesheet %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+{% endblock stylesheet %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">{{user.username}}</li>
+{%endblock%}
+
+{% block content %}
+
+        <div class="container">
+        <h2>my cars page</h2>
+        {% if messages %} 
+            {% for ms in messages %}
+            <p>
+                {{ms}}
+                <a href="{% url 'new_car' u_n=user.id %}">add new car</a>
+            </p>
+            {% endfor %} 
+    {% endif %} 
+        
+        <div class="table-responsive">          
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>السيارة</th>
+                    <th>المبلغ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{my_car}}</td>
+                    <td>{{my_val.cost}}ريال يمني</td>
+                </tr>
+                <tr>
+                    <td colspan=2> <a href="{% url 'pay_done' v_n1=my_val.V_number %}" > pay   </a> <small>تجربة بعد عملية التاكد من الدفع</small> </td> 
+                    
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        </div>
+
+
+        
+        {%endblock%}
+        {% block js %}
+        <script src="{% static '1jquery.min.js'%}"></script>
+        <script src="{% static '1bootstrap.min.js'%}"></script>
+        
+        {% endblock js %}
